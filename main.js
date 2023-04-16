@@ -34,7 +34,6 @@ async function getData() {
 }
 /* Start Insertion sentence */
 function insertSentence(data) {
-  console.log(data);
   data.split(` `).forEach((element) => {
     let word = document.createElement(`div`);
     word.classList.add(`word`);
