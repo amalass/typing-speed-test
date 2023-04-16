@@ -30,7 +30,7 @@ input.onblur = () => {
 /* getting data from data.json */
 async function getData() {
   let data = await (await fetch(`./data.json`)).json();
-  return data[(Math.random() * data.length).toFixed()];
+  return data[(Math.random() * (data.length - 1)).toFixed()];
 }
 /* Start Insertion sentence */
 function insertSentence(data) {
