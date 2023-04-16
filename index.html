@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./logo.png" type="image/icon type" />
+    <title>typing speed test</title>
+  </head>
+  <body>
+    <video src="failure.wav" class="failure"></video>
+    <video src="success.wav" class="success"></video>
+    <video src="victory-fanfare.wav" class="done"></video>
+    <video src="oops.wav" class="oops"></video>
+    <h1>Typing speed test game</h1>
+    <div class="container">
+      <h2>Check your typing skills in a minute</h2>
+      <div class="head">
+        <span>1 minute Typing test</span>
+        <span class="timer">1:00</span>
+        <span class="line"></span>
+      </div>
+      <div class="game">
+        <div class="paragraph"></div>
+      </div>
+      <div class="in">
+        <input type="text" />
+      </div>
+      <div class="result">
+        <div class="header">
+          <i class="fas fa-tachometer-alt fa-lg" aria-hidden="true"></i>
+          <h3>Your Test Score</h3>
+        </div>
+        <div class="content">
+          <div class="wpm">
+            <div class="middle">
+              <span>0</span>
+              <span>wpm</span>
+            </div>
+          </div>
+          <div class="x">x</div>
+          <div class="accuracy">
+            <div class="middle">
+              <span>0%</span>
+              <span>0 typos</span>
+            </div>
+          </div>
+          <div class="equal">=</div>
+          <div class="speed">
+            <div class="middle">
+              <span>0</span>
+              <span>wpm</span>
+            </div>
+          </div>
+        </div>
+        <button>Retry</button>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

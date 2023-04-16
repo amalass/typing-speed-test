@@ -1,0 +1,281 @@
+/* Start global rules */
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: Flexo-BoldIt, Arial, Tahoma, sans-serif;
+}
+ul {
+  list-style: none;
+}
+
+.container {
+  margin: 15px auto;
+  padding: 0 15px;
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* End global rules */
+/* Start header */
+h1 {
+  text-align: center;
+  background-color: #1690f8;
+  color: white;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.container h2 {
+  font-style: italic;
+  text-align: center;
+}
+
+.container .head {
+  margin: 15px 0;
+  background-color: #2393c5;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.container .head .line {
+  position: absolute;
+  height: 3px;
+  width: 0;
+  background-color: #0c5e66;
+  bottom: -4px;
+  left: 0;
+}
+
+.container .game .paragraph {
+  padding: 10px;
+  font-size: 26px;
+  line-height: 2;
+  font-family: "Raleway", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container .game .paragraph span {
+  padding: 5px 0;
+  border-radius: 5px;
+  margin: 0 1px;
+}
+
+.container .game .paragraph span.true {
+  background: #edf7e7;
+  color: #95c590;
+}
+.container .game .paragraph span.false {
+  background-color: #ffdcd9;
+  color: #d55b60;
+}
+
+.container .game .paragraph span.next {
+  color: #2393c5;
+  position: relative;
+}
+
+.container .game .paragraph span.next::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  left: 0;
+  bottom: -2px;
+  background-color: #2393c5;
+  animation: opacity 1s infinite;
+}
+
+@keyframes opacity {
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.container .game .paragraph span.first::before {
+  content: "Start typing";
+  position: absolute;
+  background-color: #1690f8;
+  color: white;
+  padding: 4px;
+  font-size: 12px;
+  border-radius: 6px;
+  width: 66px;
+  left: -90px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.container .in {
+  position: relative;
+  z-index: -1;
+}
+
+.container .in::after {
+  content: "";
+  width: 200px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+}
+
+/* Start auodios */
+.failure,
+.success,
+.done,
+.oops {
+  display: none;
+}
+
+.bad::before,
+.good::before {
+  font-style: italic;
+  top: 20px;
+  position: absolute;
+  right: 40px;
+}
+
+.bad::before {
+  content: "bad!";
+  color: red;
+}
+
+.good::before {
+  content: "good!";
+  color: #57a150;
+}
+
+.result {
+  background-color: black;
+  padding: 35px 50px;
+  width: fit-content;
+  border-radius: 12px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transition: 0.3s;
+  transform: translate(-50%, -50%) scale(0);
+  visibility: hidden;
+}
+
+.result .header {
+  display: flex;
+  gap: 10px;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-style: italic;
+}
+
+.result .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.result .content .wpm,
+.result .content .accuracy,
+.result .content .speed {
+  background-color: #62696d;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.result .content .wpm,
+.result .content .accuracy {
+  border: 2px solid #1690f8;
+  position: relative;
+}
+
+.result .content .equal,
+.result .content .x {
+  color: #b3bfc2;
+  font-size: 80px;
+  font-style: italic;
+}
+
+.result .content .speed {
+  border: 2px solid #15c39a;
+  position: relative;
+}
+
+.result .content .wpm::before,
+.result .content .accuracy::before,
+.result .content .speed::before {
+  position: absolute;
+  bottom: -35px;
+  color: white;
+}
+.result .content .wpm::before {
+  content: "Typing Speed";
+}
+.result .content .accuracy::before {
+  content: "Accuracy";
+}
+.result .content .speed::before {
+  content: "Net Speed";
+}
+
+.result .content .wpm span,
+.result .content .accuracy span,
+.result .content .speed span {
+  display: block;
+  text-align: center;
+}
+
+.result .content .wpm span:first-of-type,
+.result .content .accuracy span:first-of-type,
+.result .content .speed span:first-of-type {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+
+.result button {
+  padding: 7px 15px;
+  cursor: pointer;
+  margin: 70px auto 0;
+  display: block;
+  font-size: 18px;
+  color: white;
+  background-color: #71787a;
+  border: none;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+.result button:hover {
+  background-color: #1690f8;
+  border-color: #1690f8;
+}
