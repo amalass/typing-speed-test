@@ -51,50 +51,59 @@ function insertSentence(data) {
 }
 /* End Insertion sentence */
 
+let work = true;
 function showRes() {
-  result.lastElementChild.addEventListener(`click`, () => {
-    clearTimeout(time);
-  });
-  // accuracyContainer.textContent = `0%`;
-  let time = setTimeout(() => {
+  if (work) {
     result.lastElementChild.addEventListener(`click`, () => {
-      clearInterval(time1);
-      clearInterval(time2);
-      clearInterval(time3);
-      clearInterval(time4);
+      clearTimeout(time);
+      work = false;
+      setTimeout(() => {
+        work = true;
+      }, 1000);
     });
-    let time1 = setInterval(() => {
-      if (+wpmContainer.textContent === wpm) clearInterval(time1);
-      wpmContainer.textContent = +wpmContainer.textContent + 1;
-    }, 30);
-    let time2 = setInterval(() => {
-      if (+parseInt(accuracyContainer.textContent) === accurcy)
+    let time = setTimeout(() => {
+      result.lastElementChild.addEventListener(`click`, () => {
+        clearInterval(time1);
         clearInterval(time2);
-      accuracyContainer.textContent = `${
-        parseInt(accuracyContainer.textContent) + 1
-      }%`;
-    }, 20);
-    let time3 = setInterval(() => {
-      if (+speedContainer.textContent === +(wpm * (accurcy / 100)).toFixed())
         clearInterval(time3);
-      speedContainer.textContent = +speedContainer.textContent + 1;
-    }, 30);
-    let time4 = setInterval(() => {
-      if (parseInt(typosContainer.textContent) === typos) clearInterval(time4);
-      typosContainer.textContent = `${
-        parseInt(typosContainer.textContent) + 1
-      } typos`;
-    }, 50);
-  }, 1000);
-  result.style.cssText = `visibility: visible;transform: translate(-50%, -50%) scale(1);`;
-  if (accurcy >= 80 && wpm >= 30) {
-    done.play();
-    result.classList.add(`good`);
+        clearInterval(time4);
+      });
+      let time1 = setInterval(() => {
+        if (+wpmContainer.textContent === wpm) clearInterval(time1);
+        wpmContainer.textContent = +wpmContainer.textContent + 1;
+      }, 30);
+      let time2 = setInterval(() => {
+        if (+parseInt(accuracyContainer.textContent) === accurcy)
+          clearInterval(time2);
+        accuracyContainer.textContent = `${
+          parseInt(accuracyContainer.textContent) + 1
+        }%`;
+      }, 20);
+      let time3 = setInterval(() => {
+        if (+speedContainer.textContent === +(wpm * (accurcy / 100)).toFixed())
+          clearInterval(time3);
+        speedContainer.textContent = +speedContainer.textContent + 1;
+      }, 30);
+      let time4 = setInterval(() => {
+        if (parseInt(typosContainer.textContent) === typos)
+          clearInterval(time4);
+        typosContainer.textContent = `${
+          parseInt(typosContainer.textContent) + 1
+        } typos`;
+      }, 50);
+    }, 1000);
+    result.style.cssText = `visibility: visible;transform: translate(-50%, -50%) scale(1);`;
+    if (accurcy >= 80 && wpm >= 30) {
+      done.play();
+      result.classList.add(`good`);
+    } else {
+      oops.play();
+      result.classList.add(`bad`);
+    }
+    input.setAttribute(`disabled`, `true`);
   } else {
-    oops.play();
-    result.classList.add(`bad`);
+    work = true;
   }
-  input.setAttribute(`disabled`, `true`);
 }
 
 /* start the timer function */
