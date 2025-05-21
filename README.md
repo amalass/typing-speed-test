@@ -1,1 +1,1 @@
-Demo: https://amsmaug.github.io/typing-speed-test/
+Demo: https://amalass.github.io/typing-speed-test/
